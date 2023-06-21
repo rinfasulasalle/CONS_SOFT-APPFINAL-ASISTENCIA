@@ -1,15 +1,16 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HelloWorld msg="APP ASISTENCIA ULS"/>
+  <CmpRouter/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import CmpRouter from './components/CmpRouter.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    CmpRouter
   }
 }
 </script>
@@ -20,7 +21,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 </style>
