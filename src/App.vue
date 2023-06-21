@@ -1,15 +1,12 @@
 <template>
-  <HelloWorld msg="APP ASISTENCIA ULS"/>
   <CmpRouter/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import CmpRouter from './components/CmpRouter.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     CmpRouter
   }
 }
