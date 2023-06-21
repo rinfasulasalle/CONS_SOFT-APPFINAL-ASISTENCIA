@@ -23,6 +23,14 @@ const routes = [
     {
         path: "/Usuario",
         component: CmpUsuario
+    },
+    {
+        path: "/",
+        component: CmpHome
+    },
+    {
+        path: "/",
+        component: CmpHome
     }
 ];
 

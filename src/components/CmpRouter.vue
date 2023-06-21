@@ -39,13 +39,23 @@ export default {
                 items: [
                 {
                     label: "GrupoUsuario",
-                    icon: "pi pi-fw pi-user-plus",
+                    icon: "pi pi-fw pi-users",
                     to: "/GrupoUsuario"
                 },
                 {
                     label: "Usuario",
                     icon: "pi pi-fw pi-user-plus",
                     to: "/CmpUsuario"
+                },
+                {
+                    label: "Estudiante",
+                    icon: "pi pi-fw pi-user-plus",
+                    to: "/"
+                },
+                {
+                    label: "Profesor",
+                    icon: "pi pi-fw pi-user-plus",
+                    to: "/"
                 }
                 ]
             },
