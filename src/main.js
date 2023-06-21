@@ -8,8 +8,8 @@ import PrimeVue from 'primevue/config';
 //import "primevue/resources/themes/md-light-indigo/theme.css"; 
 //import "primevue/resources/themes/bootstrap4-light-blue/theme.css";
 //import "primevue/resources/themes/viva-dark/theme.css";
-import "primevue/resources/themes/mdc-dark-deeppurple/theme.css";
-//import "primevue/resources/themes/viva-light/theme.css";
+//import "primevue/resources/themes/mdc-dark-deeppurple/theme.css";
+import "primevue/resources/themes/viva-light/theme.css";
 //core
 import "primevue/resources/primevue.min.css";
 //icons

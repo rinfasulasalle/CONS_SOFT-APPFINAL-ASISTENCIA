@@ -8,10 +8,10 @@
     <DataTable :value="grupos" :paginator="true" :rows="10">
         <Column field="id_grupo" header="ID Grupo"></Column>
         <Column field="nombre_grupo" header="Nombre Grupo"></Column>
-        <Column header="">
-            <template #body="slotProps" wi>
-            <Button icon="pi pi-pencil" severity="warning" @click="editGrupo(slotProps.data)" />
-            <Button icon="pi pi-trash" severity="danger" @click="confirmDeleteGrupo(slotProps.data)" />
+        <Column header="Acciones">
+            <template #body="slotProps">
+            <Button icon="pi pi-pencil" class="p-button-rounded p-button-info" @click="editGrupo(slotProps.data)" />
+            <Button icon="pi pi-trash" class="p-button-rounded p-button-danger" @click="confirmDeleteGrupo(slotProps.data)" />
             </template>
         </Column>
     </DataTable>
@@ -44,5 +44,5 @@ export default {
     mounted() {
         this.fetchGrupos();
     },
-};
+    };
 </script>
