@@ -57,7 +57,7 @@ data() {
             {
                 label: "Profesor",
                 icon: "pi pi-fw pi-user-plus",
-                to: "/"
+                to: "/Profesor"
             }
             ]
         },

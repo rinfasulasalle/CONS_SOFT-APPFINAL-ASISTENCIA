@@ -28,6 +28,9 @@ import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
 
 import Dropdown  from 'primevue/dropdown'
+import InputMask  from 'primevue/inputmask'
+import Password  from 'primevue/password'
+import FileUpload  from 'primevue/fileupload'
 
 const app = createApp(App);
 app.use(PrimeVue);
@@ -44,5 +47,9 @@ app.component('ColumnGroup', ColumnGroup);
 app.component('Row', Row);
 
 app.component('Dropdown', Dropdown);
+app.component('InputMask', InputMask);
+app.component('Password', Password);
+app.component('FileUpload', FileUpload);
+
 
 app.mount("#app")

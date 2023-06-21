@@ -7,6 +7,7 @@ import CmpAbout from './components/CmpAbout.vue';
 
 import CmpGrupoUsuario from './components/CmpGrupoUsuario.vue';
 import CmpUsuario from './components/CmpUsuario.vue';
+import CmpProfesor from './components/CmpProfesor.vue'
 const routes = [
     {
         path: "/",
@@ -27,6 +28,14 @@ const routes = [
     {
         path: "/",
         component: CmpHome
+    },
+    {
+        path: "/Profesor",
+        component: CmpProfesor
+    },
+    {
+        path: "/",
+        component: CmpProfesor
     },
     {
         path: "/",
