@@ -1,15 +1,15 @@
 <template>
-  <CmpRouter/>
+  <CmpRouter />
 </template>
 
 <script>
-import CmpRouter from './components/CmpRouter.vue'
+import CmpRouter from "./components/CmpRouter.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    CmpRouter
-  }
-}
+    CmpRouter,
+  },
+};
 </script>
 
 <style>
