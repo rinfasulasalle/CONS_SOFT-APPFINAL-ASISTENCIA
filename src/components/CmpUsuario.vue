@@ -105,7 +105,6 @@
           id="usuario_correo"
           v-model="nuevoUsuario.usuario_correo"
           required
-          pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
           title=" Ingresa un email valido"
           placeholder="example@example.com"
         />
@@ -165,16 +164,20 @@ export default {
         usuario_id_grupo_usuario: null,
         usuario_ruta: "",
       },
+      /*
       dropdownOptions: [
         { name: "Administrador", code: 1 },
         { name: "Docente", code: 2 },
         { name: "Alumno", code: 3 },
         { name: "Secretaria", code: 4 },
       ],
+      */
+      dropdownOptions: [], // Array para almacenar los grupos de usuarios
     };
   },
   mounted() {
     this.fetchUsuarios();
+    this.fetchGruposUsuarios(); //Para cargar los GruposUsuarios
   },
   methods: {
     fetchUsuarios() {
@@ -193,7 +196,21 @@ export default {
     openNew() {
       this.displayDialogNew = true;
     },
-
+    // Método para obtener los grupos de usuarios
+    fetchGruposUsuarios() {
+      axios
+        .post("http://127.0.0.1:5000/grupoUsuarios")
+        .then((response) => {
+          console.log("response.data:", response.data);
+          this.dropdownOptions = response.data.map((grupo) => ({
+            name: grupo.nombre_grupo,
+            code: grupo.id_grupo,
+          }));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     // Método para cancelar la creación de un nuevo usuario
     cancelNew() {
       this.displayDialogNew = false;
