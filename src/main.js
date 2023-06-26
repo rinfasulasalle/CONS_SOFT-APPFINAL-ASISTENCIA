@@ -32,7 +32,6 @@ import InputMask from "primevue/inputmask";
 import Password from "primevue/password";
 import FileUpload from "primevue/fileupload";
 import InputNumber from "primevue/inputnumber";
-
 const app = createApp(App);
 app.use(PrimeVue);
 app.use(router);
@@ -52,5 +51,4 @@ app.component("InputMask", InputMask);
 app.component("Password", Password);
 app.component("FileUpload", FileUpload);
 app.component("InputNumber", InputNumber);
-
 app.mount("#app");

@@ -95,17 +95,19 @@
   >
     <form>
       <div class="p-field">
-        <label for="edit_id_grupo">ID Grupo</label>
+        <label for="edit_id_grupo">ID Grupo </label>
         <Dropdown
+          disabled
           id="edit_id_grupo"
           v-model="editData.id_grupo"
           :options="grupoOptions"
           optionLabel="id_grupo"
           optionValue="id_grupo"
         />
+        <br /><br />
       </div>
       <div class="p-field">
-        <label for="edit_nombre_grupo">Nombre Grupo</label>
+        <label for="edit_nombre_grupo">Nombre Grupo </label>
         <InputText id="edit_nombre_grupo" v-model="editData.nombre_grupo" />
       </div>
       <br />

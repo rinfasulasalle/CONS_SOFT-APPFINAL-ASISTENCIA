@@ -1,28 +1,25 @@
 <template>
-  <h1>CmpAbout</h1>
-  <div>
-    <Button label="Abrir diálogo" @click="openDialog" />
-    <Dialog
-      v-model:visible="visible"
-      modal
-      header="Hola mundo"
-      :style="{ width: '20vw' }"
+  <div class="card">
+    <FileUpload
+      name="demo[]"
+      url="./upload.php"
+      @upload="onAdvancedUpload($event)"
+      :multiple="true"
+      accept="image/*"
+      :maxFileSize="1000000"
     >
-      <p>Hola mundo</p>
-    </Dialog>
+      <template #empty>
+        <p>Drag and drop files here to upload.</p>
+      </template>
+    </FileUpload>
   </div>
 </template>
+
 <script>
 export default {
-  data() {
-    return {
-      visible: false,
-    };
-  },
   methods: {
-    openDialog() {
-      this.visible = true;
-      console.log("xd");
+    onAdvancedUpload() {
+      // Código personalizado para manejar la carga avanzada
     },
   },
 };

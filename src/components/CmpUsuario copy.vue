@@ -165,6 +165,14 @@ export default {
         usuario_id_grupo_usuario: null,
         usuario_ruta: "",
       },
+      /*
+      dropdownOptions: [
+        { name: "Administrador", code: 1 },
+        { name: "Docente", code: 2 },
+        { name: "Alumno", code: 3 },
+        { name: "Secretaria", code: 4 },
+      ],
+      */
       dropdownOptions: [], // Array para almacenar los grupos de usuarios
     };
   },
@@ -173,7 +181,6 @@ export default {
     this.fetchGruposUsuarios(); //Para cargar los GruposUsuarios
   },
   methods: {
-    // Método para obtener la lista de usuarios desde el servidor
     fetchUsuarios() {
       axios
         .post("http://127.0.0.1:5000/usuarios")
@@ -184,17 +191,18 @@ export default {
           console.log(error);
         });
     },
+    // other methods for adding, editing, and deleting users
 
     // Método para abrir el diálogo para agregar un nuevo usuario
     openNew() {
       this.displayDialogNew = true;
     },
-
-    // Método para obtener los grupos de usuarios desde el servidor
+    // Método para obtener los grupos de usuarios
     fetchGruposUsuarios() {
       axios
         .post("http://127.0.0.1:5000/grupoUsuarios")
         .then((response) => {
+          //console.log("response.data:", response.data);
           this.dropdownOptions = response.data.map((grupo) => ({
             name: grupo.nombre_grupo,
             code: grupo.id_grupo,
@@ -204,7 +212,6 @@ export default {
           console.log(error);
         });
     },
-
     // Método para cancelar la creación de un nuevo usuario
     cancelNew() {
       this.displayDialogNew = false;
@@ -220,45 +227,42 @@ export default {
         usuario_ruta: "",
       };
     },
-
-    // Método para manejar la subida de archivos
+    //se activa cuando se selecciona un archivo en el campo de entrada de archivos.
     handleFileUpload(event) {
       const file = event.target.files[0];
       this.uploadFile(file);
     },
-
-    // Método para subir el archivo al servidor
+    //uploadFile que crea un objeto FormData y agrega el archivo seleccionado a él.
     uploadFile(file) {
       const formData = new FormData();
       formData.append("file", file);
 
+      // Realiza la solicitud al servidor para cargar el archivo
       axios
         .post("http://localhost:81/openfaceAPI", formData)
         .then((response) => {
           const usuario_vector = response.data.result;
-          //console.log(usuario_vector);
-          this.nuevoUsuario.usuario_ruta = usuario_vector;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-
-    // Método para enviar los datos del nuevo usuario
-    submitUsuario() {
-      console.log("Nuevo usuario:");
-      console.table(this.nuevoUsuario);
-
-      axios
-        .put("http://127.0.0.1:5000/usuario", this.nuevoUsuario)
-        .then((response) => {
-          console.log("Usuario guardado:", response.data);
-          this.fetchUsuarios(); // Actualizar la lista de usuarios después de guardar
+          console.log(usuario_vector); // tengo el vector
+          // Realiza las acciones necesarias con el vector del usuario
+          // ...
+          // Aquí puedes enviar los datos al servidor utilizando axios.post() u otra lógica necesaria
+          // Por ahora, solo mostraremos los datos en la consola
+          console.log("Nuevo xd:");
+          this.nuevoUsuario.usuario_ruta = usuario_vector; // creo que aca hago xd
+          console.table(this.nuevoUsuario);
           this.cancelNew();
         })
         .catch((error) => {
           console.error(error);
         });
+    },
+    // Método para enviar los datos del nuevo usuario
+    submitUsuario() {
+      console.log("Nuevo usuario:");
+      console.table(this.nuevoUsuario);
+      // Aquí puedes enviar los datos al servidor utilizando axios.post() u otra lógica necesaria
+      // Por ahora, solo mostraremos los datos en la consola
+      this.cancelNew();
     },
   },
 };
