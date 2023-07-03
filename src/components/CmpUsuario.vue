@@ -144,6 +144,33 @@
       <br />
     </form>
   </Dialog>
+
+  <!-- Diálogo de confirmación para eliminar usuario -->
+  <Dialog
+    v-model:visible="displayConfirmDialog"
+    header="Confirmar eliminación"
+    :modal="true"
+  >
+    <p>
+      ¿Estás seguro de que deseas eliminar el usuario con DNI "{{
+        selectedUsuario.usuario_dni
+      }}"?
+    </p>
+    <div class="p-dialog-footer">
+      <Button
+        label="Cancelar"
+        icon="pi pi-times"
+        class="p-button-secondary"
+        @click="cancelDelete"
+      />
+      <Button
+        label="Aceptar"
+        icon="pi pi-check"
+        class="p-button-danger"
+        @click="deleteUsuario"
+      />
+    </div>
+  </Dialog>
 </template>
 
 <script>
@@ -155,6 +182,7 @@ export default {
       usuarios: [], // Array de usuarios
       selectedUsuario: null, // Usuario seleccionado para eliminar
       displayDialogNew: false, // Indica si el diálogo para agregar un nuevo usuario está visible
+      displayConfirmDialog: false, // Indica si el diálogo de confirmación de eliminación está visible
       nuevoUsuario: {
         usuario_dni: null,
         usuario_nombre: "",
@@ -255,6 +283,35 @@ export default {
           console.log("Usuario guardado:", response.data);
           this.fetchUsuarios(); // Actualizar la lista de usuarios después de guardar
           this.cancelNew();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+
+    // Método para abrir el diálogo de confirmación de eliminación de usuario
+    confirmDeleteUsuario(usuario) {
+      this.selectedUsuario = usuario;
+      this.displayConfirmDialog = true;
+    },
+
+    // Método para cancelar la eliminación de usuario
+    cancelDelete() {
+      this.displayConfirmDialog = false;
+    },
+
+    // Método para eliminar el usuario seleccionado
+    deleteUsuario() {
+      axios
+        .delete("http://127.0.0.1:5000/usuario", {
+          data: {
+            usuario_dni: this.selectedUsuario.usuario_dni,
+          },
+        })
+        .then((response) => {
+          console.log("Usuario eliminado:", response.data);
+          this.fetchUsuarios(); // Actualizar la lista de usuarios después de eliminar
+          this.displayConfirmDialog = false;
         })
         .catch((error) => {
           console.error(error);
