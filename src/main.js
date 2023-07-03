@@ -15,7 +15,7 @@ import "primevue/resources/primevue.min.css";
 //icons
 import "primeicons/primeicons.css";
 
-// cada componente se importa de forma separada +++++++++++++++++++++++++
+// cada componente se importa de forma separada ++++++++++++++++++++++
 import Button from "primevue/button";
 import Dialog from "primevue/dialog";
 // Router
@@ -35,7 +35,7 @@ import InputNumber from "primevue/inputnumber";
 const app = createApp(App);
 app.use(PrimeVue);
 app.use(router);
-// aqui agregamos el componente ******************************************
+// aqui agregamos el componente ***************************************
 app.component("Button", Button);
 app.component("Dialog", Dialog);
 app.component("Menubar", Menubar);
