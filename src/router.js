@@ -9,6 +9,7 @@ import CmpUsuario from "./components/CmpUsuario.vue";
 import CmpProfesor from "./components/CmpProfesor.vue";
 import CmpEstudiante from "./components/CmpEstudiante";
 import CmpCurso from "./components/CmpCurso.vue";
+import CmpSeccion from "./components/CmpSeccion.vue";
 const routes = [
   {
     path: "/",
@@ -39,8 +40,8 @@ const routes = [
     component: CmpCurso,
   },
   {
-    path: "/",
-    component: CmpHome,
+    path: "/CmpSeccion",
+    component: CmpSeccion,
   },
   {
     path: "/",

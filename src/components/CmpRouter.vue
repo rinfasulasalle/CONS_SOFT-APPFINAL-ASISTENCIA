@@ -74,7 +74,7 @@ export default {
             {
               label: "Seccion",
               icon: "pi pi-fw pi-folder",
-              to: "/",
+              to: "/CmpSeccion",
             },
             {
               label: "Asistencia",
