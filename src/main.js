@@ -5,10 +5,10 @@ import router from "./router";
 // import
 import PrimeVue from "primevue/config";
 //import "primevue/resources/themes/md-dark-indigo/theme.css";
-//import "primevue/resources/themes/md-light-indigo/theme.css";
+import "primevue/resources/themes/md-light-indigo/theme.css";
 //import "primevue/resources/themes/bootstrap4-light-blue/theme.css";
 //import "primevue/resources/themes/viva-dark/theme.css";
-import "primevue/resources/themes/mdc-dark-deeppurple/theme.css";
+//import "primevue/resources/themes/mdc-dark-deeppurple/theme.css";
 //import "primevue/resources/themes/viva-light/theme.css";
 //core
 import "primevue/resources/primevue.min.css";
@@ -32,6 +32,8 @@ import InputMask from "primevue/inputmask";
 import Password from "primevue/password";
 import FileUpload from "primevue/fileupload";
 import InputNumber from "primevue/inputnumber";
+import Card from "primevue/card";
+import ConfirmDialog from "primevue/confirmdialog";
 const app = createApp(App);
 app.use(PrimeVue);
 app.use(router);
@@ -51,4 +53,6 @@ app.component("InputMask", InputMask);
 app.component("Password", Password);
 app.component("FileUpload", FileUpload);
 app.component("InputNumber", InputNumber);
+app.component("Card", Card);
+app.component("ConfirmDialog", ConfirmDialog);
 app.mount("#app");

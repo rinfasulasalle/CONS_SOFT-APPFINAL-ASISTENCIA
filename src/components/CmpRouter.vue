@@ -63,6 +63,49 @@ export default {
           ],
         },
         {
+          label: "Gestion clases",
+          icon: "pi pi-fw pi-database",
+          items: [
+            {
+              label: "Curso",
+              icon: "pi pi-fw pi-book",
+              to: "/CmpCurso",
+            },
+            {
+              label: "Seccion",
+              icon: "pi pi-fw pi-folder",
+              to: "/",
+            },
+            {
+              label: "Asistencia",
+              icon: "pi pi-fw pi-check-square",
+              to: "/",
+            },
+            {
+              label: "Participacion",
+              icon: "pi pi-fw pi-start",
+              to: "/",
+            },
+          ],
+        },
+        {
+          label: "Clasroom",
+          icon: "pi pi-fw pi-calendar-plus",
+          items: [
+            {
+              label: "Curso",
+              icon: "pi pi-fw pi-book",
+              to: "/CmpCurso",
+            },
+            {
+              label: "Horaio",
+              icon: "pi pi-fw pi-calendar-plus",
+              to: "/",
+            },
+          ],
+        },
+
+        {
           label: "Quit",
           icon: "pi pi-fw pi-power-off",
         },

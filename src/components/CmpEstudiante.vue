@@ -54,15 +54,41 @@
   >
     <form>
       <div class="p-field">
-        <label for="estudiante_dni">DNI</label>
-        <InputText id="estudiante_dni" v-model="newEstudiante.estudiante_dni" />
+        <label for="usuario_dni">DNI</label>
+        <InputText id="usuario_dni" v-model="newEstudiante.usuario_dni" />
       </div>
       <div class="p-field">
-        <label for="estudiante_nombre">Nombre</label>
+        <label for="usuario_nombre">Nombre</label>
+        <InputText id="usuario_nombre" v-model="newEstudiante.usuario_nombre" />
+      </div>
+      <div class="p-field">
+        <label for="usuario_apellido">Apellido</label>
         <InputText
-          id="estudiante_nombre"
-          v-model="newEstudiante.estudiante_nombre"
+          id="usuario_apellido"
+          v-model="newEstudiante.usuario_apellido"
         />
+      </div>
+      <div class="p-field">
+        <label for="usuario_telefono">Teléfono</label>
+        <InputText
+          id="usuario_telefono"
+          v-model="newEstudiante.usuario_telefono"
+        />
+      </div>
+      <div class="p-field">
+        <label for="usuario_correo">Correo</label>
+        <InputText id="usuario_correo" v-model="newEstudiante.usuario_correo" />
+      </div>
+      <div class="p-field">
+        <label for="usuario_contraseña">Contraseña</label>
+        <InputText
+          id="usuario_contraseña"
+          v-model="newEstudiante.usuario_contraseña"
+        />
+      </div>
+      <div class="p-field">
+        <label for="usuario_ruta">Ruta de la foto</label>
+        <InputText id="usuario_ruta" v-model="newEstudiante.usuario_ruta" />
       </div>
       <br />
       <div class="p-dialog-footer">
@@ -81,6 +107,7 @@
       </div>
     </form>
   </Dialog>
+
   <!-- Diálogo de confirmación para eliminar un estudiante -->
   <Dialog
     v-model:visible="displayConfirmDialog"
@@ -198,7 +225,9 @@ export default {
       if (this.selectedEstudiante) {
         const dniEstudiante = this.selectedEstudiante.estudiante_dni;
         axios
-          .delete("http://127.0.0.1:5000/estudiantes/" + dniEstudiante)
+          .delete("http://127.0.0.1:5000/estudiante", {
+            data: { dni: dniEstudiante },
+          })
           .then((response) => {
             // Eliminar el estudiante de la lista actual de estudiantes
             const index = this.estudiantes.findIndex(
@@ -219,7 +248,17 @@ export default {
     // Método para abrir el diálogo para agregar un nuevo estudiante
     openNew() {
       this.displayDialogNew = true;
+      this.newEstudiante = {
+        usuario_dni: "",
+        usuario_nombre: "",
+        usuario_apellido: "",
+        usuario_telefono: "",
+        usuario_correo: "",
+        usuario_contraseña: "",
+        usuario_ruta: "",
+      };
     },
+
     // Método para enviar el nuevo estudiante al servidor
     submitNew() {
       axios
@@ -228,7 +267,8 @@ export default {
           // Agregar el nuevo estudiante a la lista actual de estudiantes
           this.estudiantes.push(response.data);
           this.displayDialogNew = false; // Cerrar el diálogo
-          console.log("Nuevo estudiante enviado:", response.data);
+          console.log("Nuevo estudiante enviado:");
+          console.table(response.data);
         })
         .catch((error) => {
           console.error(error);

@@ -8,6 +8,7 @@ import CmpGrupoUsuario from "./components/CmpGrupoUsuario.vue";
 import CmpUsuario from "./components/CmpUsuario.vue";
 import CmpProfesor from "./components/CmpProfesor.vue";
 import CmpEstudiante from "./components/CmpEstudiante";
+import CmpCurso from "./components/CmpCurso.vue";
 const routes = [
   {
     path: "/",
@@ -34,8 +35,24 @@ const routes = [
     component: CmpProfesor,
   },
   {
+    path: "/CmpCurso",
+    component: CmpCurso,
+  },
+  {
     path: "/",
-    component: CmpProfesor,
+    component: CmpHome,
+  },
+  {
+    path: "/",
+    component: CmpHome,
+  },
+  {
+    path: "/",
+    component: CmpHome,
+  },
+  {
+    path: "/",
+    component: CmpHome,
   },
   {
     path: "/",
