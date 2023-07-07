@@ -53,7 +53,7 @@ export default {
             {
               label: "Estudiante",
               icon: "pi pi-fw pi-user-plus",
-              to: "/",
+              to: "/CmpEstudiante",
             },
             {
               label: "Profesor",
