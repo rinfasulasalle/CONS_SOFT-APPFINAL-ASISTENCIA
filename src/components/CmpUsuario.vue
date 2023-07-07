@@ -264,8 +264,10 @@ export default {
         .post("http://localhost:81/openfaceAPI", formData)
         .then((response) => {
           const usuario_vector = response.data.result;
-          //console.log(usuario_vector);
-          this.nuevoUsuario.usuario_ruta = usuario_vector;
+          console.log("xds");
+          console.log("a", formData.usuario_ruta);
+          console.log(usuario_vector);
+          //this.nuevoUsuario.usuario_ruta = usuario_vector;
         })
         .catch((error) => {
           console.error(error);

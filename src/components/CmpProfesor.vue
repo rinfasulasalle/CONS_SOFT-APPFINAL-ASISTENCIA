@@ -17,24 +17,31 @@
     />
   </Toolbar>
   <!-- TABLA-->
-  <DataTable :value="grupos" :paginator="true" :rows="10">
-    <Column field="id_grupo" header="ID Grupo"></Column>
-    <Column field="nombre_grupo" header="Nombre Grupo"></Column>
+  <DataTable :value="profesores" :paginator="true" :rows="10">
+    <Column field="id_profesor" header="ID"></Column>
+    <Column field="profesor_dni" header="DNI"></Column>
+    <Column field="nombre" header="Nombre"></Column>
+    <Column field="apellidos" header="Apellidos"></Column>
+    <Column field="correo" header="Correo"></Column>
+    <Column field="telefono" header="Teléfono"></Column>
     <Column header="Acciones">
       <template #body="slotProps">
         <Button
           icon="pi pi-pencil"
           severity="warning"
-          @click="editGrupo(slotProps.data)"
+          @click="editProfesor(slotProps.data)"
         />
         <Button
           icon="pi pi-trash"
           severity="danger"
-          @click="confirmDeleteGrupo(slotProps.data)"
+          @click="confirmDeleteProfesor(slotProps.data)"
         />
       </template>
     </Column>
   </DataTable>
+  <Dialog v-model="dialogVisible" header="Nuevo profesor">
+    <p>Hola mundo</p>
+  </Dialog>
 </template>
 <script>
 import axios from "axios";
@@ -42,29 +49,36 @@ import axios from "axios";
 export default {
   data() {
     return {
-      grupos: [],
+      profesores: [],
+      dialogVisible: false, // Estado para controlar la visibilidad del diálogo
     };
   },
   methods: {
-    async fetchGrupos() {
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:5000/grupoUsuarios"
-        );
-        this.grupos = response.data;
-      } catch (error) {
-        console.error(error);
-      }
+    fetchProfesores() {
+      axios
+        .post("http://127.0.0.1:5000/profesors")
+        .then((response) => {
+          this.profesores = response.data.map((profesor) => ({
+            id_profesor: profesor.id_profesor,
+            profesor_dni: profesor.profesor_dni,
+            nombre: profesor.nombre,
+            apellidos: profesor.apellidos,
+            correo: profesor.correo,
+            telefono: profesor.telefono,
+          }));
+          console.table(this.profesores);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
-    editGrupo(grupo) {
-      // Lógica para editar un grupo
+    openNew() {
+      this.dialogVisible = true; // Mostrar el diálogo estableciendo el estado dialogVisible a true
     },
-    confirmDeleteGrupo(grupo) {
-      // Lógica para confirmar la eliminación de un grupo
-    },
+    // Resto de los métodos para crear, eliminar y editar profesores
   },
   mounted() {
-    this.fetchGrupos();
+    this.fetchProfesores();
   },
 };
 </script>
