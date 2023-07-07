@@ -66,7 +66,7 @@ export default {
             correo: profesor.correo,
             telefono: profesor.telefono,
           }));
-          console.table(this.profesores);
+          //console.table(this.profesores);
         })
         .catch((error) => {
           console.error(error);

@@ -23,9 +23,6 @@
           <div v-if="intentos > 0" class="intentos-restantes">
             Intentos restantes: {{ 3 - intentos }}
           </div>
-          <div v-if="loginError" class="login-error">
-            Credenciales incorrectas. Por favor, inténtalo de nuevo.
-          </div>
         </div>
       </div>
     </template>
@@ -62,29 +59,33 @@ export default {
       isLoggedIn: false,
       intentos: 0,
       usuarios: [],
-      credencialesPermitidas: {
-        correo: "rinfas@uls.com",
-        contraseña: "pas1234",
-      },
-      loginError: false,
     };
   },
   methods: {
     login() {
-      if (
-        this.correo === this.credencialesPermitidas.correo &&
-        this.contraseña === this.credencialesPermitidas.contraseña
-      ) {
-        this.isLoggedIn = true;
-        this.intentos = 0;
-        this.loginError = false;
-      } else {
-        this.intentos++;
-        this.loginError = true;
-        if (this.intentos >= 3) {
-          this.isLoggedIn = false;
-        }
-      }
+      axios
+        .post("http://127.0.0.1:5000/usuarios")
+        .then((response) => {
+          this.usuarios = response.data;
+          const encontrado = this.usuarios.find(
+            (usuario) =>
+              usuario.usuario_correo === this.correo &&
+              usuario.usuario_contraseña === this.contraseña
+          );
+
+          if (encontrado) {
+            this.isLoggedIn = true;
+            this.intentos = 0;
+          } else {
+            this.intentos++;
+            if (this.intentos >= 3) {
+              this.isLoggedIn = false;
+            }
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };
@@ -145,12 +146,6 @@ export default {
 }
 
 .intentos-restantes {
-  margin-top: 10px;
-  font-size: 12px;
-  color: red;
-}
-
-.login-error {
   margin-top: 10px;
   font-size: 12px;
   color: red;

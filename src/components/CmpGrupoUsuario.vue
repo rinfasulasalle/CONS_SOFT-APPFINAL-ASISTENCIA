@@ -198,7 +198,7 @@ export default {
             }
             this.selectedGrupo = null;
             this.displayConfirmDialog = false; // Cerrar el diálogo de confirmación
-            console.log("Grupo eliminado:", response.data);
+            //console.log("Grupo eliminado:", response.data);
           })
           .catch((error) => {
             console.error(error);
@@ -217,7 +217,7 @@ export default {
           // Agregar el nuevo grupo a la lista actual de grupos
           this.grupos.push(response.data);
           this.displayDialogNew = false; // Cerrar el diálogo
-          console.log("Nuevo grupo enviado:", response.data);
+          //console.log("Nuevo grupo enviado:", response.data);
         })
         .catch((error) => {
           console.error(error);
@@ -250,7 +250,7 @@ export default {
             this.editData.id_grupo = null;
             this.editData.nombre_grupo = "";
             this.displayEditDialog = false; // Cerrar el diálogo de edición
-            console.log("Grupo actualizado:", response.data);
+            //console.log("Grupo actualizado:", response.data);
           })
           .catch((error) => {
             console.error(error);

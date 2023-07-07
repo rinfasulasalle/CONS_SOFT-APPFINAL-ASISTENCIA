@@ -84,7 +84,7 @@ export default {
         .post("http://127.0.0.1:5000/cursos")
         .then((response) => {
           this.cursos = response.data;
-          console.table(response.data);
+          //console.table(response.data);
         })
         .catch((error) => {
           console.error("Error al obtener los cursos:", error);
@@ -94,7 +94,7 @@ export default {
       axios
         .put("http://127.0.0.1:5000/curso", { nombre_curso: this.nombreCurso })
         .then((response) => {
-          console.log("Curso creado:", response.data);
+          //console.log("Curso creado:", response.data);
           this.nombreCurso = ""; // Reiniciar el campo del nombre del curso después de crearlo
           this.obtenerCursos(); // Volver a obtener la lista de cursos para refrescarla
         })
@@ -106,7 +106,7 @@ export default {
       axios
         .delete("http://127.0.0.1:5000/curso", { data: { id_curso: idCurso } })
         .then((response) => {
-          console.log("Curso eliminado:", response.data);
+          //console.log("Curso eliminado:", response.data);
           this.obtenerCursos(); // Refresh the course list
         })
         .catch((error) => {
@@ -126,7 +126,7 @@ export default {
           curso: this.cursoSeleccionado,
         })
         .then((response) => {
-          console.log("Curso editado:", response.data);
+          //console.log("Curso editado:", response.data);
           this.cursoSeleccionado = null; // Limpiar el curso seleccionado después de editar
           this.obtenerCursos(); // Volver a obtener la lista de cursos para refrescarla
         })

@@ -209,7 +209,7 @@ export default {
           this.usuarios = response.data;
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
 
@@ -229,7 +229,7 @@ export default {
           }));
         })
         .catch((error) => {
-          console.log(error);
+          //console.log(error);
         });
     },
 
@@ -264,9 +264,9 @@ export default {
         .post("http://localhost:81/openfaceAPI", formData)
         .then((response) => {
           const usuario_vector = response.data.result;
-          console.log("xds");
-          console.log("a", formData.usuario_ruta);
-          console.log(usuario_vector);
+          //console.log("xds");
+          //console.log("a", formData.usuario_ruta);
+          //console.log(usuario_vector);
           //this.nuevoUsuario.usuario_ruta = usuario_vector;
         })
         .catch((error) => {
@@ -276,13 +276,13 @@ export default {
 
     // Método para enviar los datos del nuevo usuario
     submitUsuario() {
-      console.log("Nuevo usuario:");
-      console.table(this.nuevoUsuario);
+      //console.log("Nuevo usuario:");
+      //console.table(this.nuevoUsuario);
 
       axios
         .put("http://127.0.0.1:5000/usuario", this.nuevoUsuario)
         .then((response) => {
-          console.log("Usuario guardado:", response.data);
+          //console.log("Usuario guardado:", response.data);
           this.fetchUsuarios(); // Actualizar la lista de usuarios después de guardar
           this.cancelNew();
         })
@@ -311,7 +311,7 @@ export default {
           },
         })
         .then((response) => {
-          console.log("Usuario eliminado:", response.data);
+          //console.log("Usuario eliminado:", response.data);
           this.fetchUsuarios(); // Actualizar la lista de usuarios después de eliminar
           this.displayConfirmDialog = false;
         })

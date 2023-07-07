@@ -43,11 +43,11 @@
     >
       <form>
         <div class="p-field">
-          <label for="nombre_seccion">Nombre de Sección</label>
+          <label for="nombre_seccion">Nombre de Sección </label>
           <InputText id="nombre_seccion" v-model="newGrupo.nombre_seccion" />
         </div>
         <div class="p-field">
-          <label for="curso">Curso</label>
+          <label for="curso">Curso </label>
           <Dropdown
             id="curso"
             v-model="newGrupo.id_curso"
@@ -79,7 +79,7 @@
       :modal="true"
     >
       <p>
-        ¿Estás seguro de que deseas eliminar el grupo "{{
+        ¿Estás seguro de que deseas la seccion el grupo "{{
           selectedGrupo.nombre_seccion
         }}"?
       </p>
@@ -105,7 +105,7 @@
     >
       <form>
         <div class="p-field">
-          <label for="edit_id_seccion">ID Sección</label>
+          <label for="edit_id_seccion">ID Sección </label>
           <InputText
             disabled
             id="edit_id_seccion"
@@ -113,14 +113,14 @@
           />
         </div>
         <div class="p-field">
-          <label for="edit_nombre_seccion">Nombre de Sección</label>
+          <label for="edit_nombre_seccion">Nombre de Sección </label>
           <InputText
             id="edit_nombre_seccion"
             v-model="editData.nombre_seccion"
           />
         </div>
         <div class="p-field">
-          <label for="edit_curso">Curso</label>
+          <label for="edit_curso">Curso </label>
           <Dropdown
             id="edit_curso"
             v-model="editData.id_curso"
@@ -225,7 +225,7 @@ export default {
             }
             this.selectedGrupo = null;
             this.displayConfirmDialog = false;
-            console.log("Grupo eliminado:", response.data);
+            //console.log("Grupo eliminado:", response.data);
           })
           .catch((error) => {
             console.error(error);
@@ -241,7 +241,7 @@ export default {
         .then((response) => {
           this.grupos.push(response.data);
           this.displayDialogNew = false;
-          console.log("Nuevo grupo enviado:", response.data);
+          //console.log("Nuevo grupo enviado:", response.data);
         })
         .catch((error) => {
           console.error(error);
@@ -273,7 +273,7 @@ export default {
             this.editData.nombre_seccion = "";
             this.editData.id_curso = null;
             this.displayEditDialog = false;
-            console.log("Grupo actualizado:", response.data);
+            //console.log("Grupo actualizado:", response.data);
           })
           .catch((error) => {
             console.error(error);

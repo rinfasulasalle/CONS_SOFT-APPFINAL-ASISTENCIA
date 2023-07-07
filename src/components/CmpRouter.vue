@@ -98,9 +98,9 @@ export default {
               to: "/CmpCurso",
             },
             {
-              label: "Horaio",
+              label: "Horario",
               icon: "pi pi-fw pi-calendar-plus",
-              to: "/",
+              to: "/CmpHorario",
             },
           ],
         },

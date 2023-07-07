@@ -238,7 +238,7 @@ export default {
             }
             this.selectedEstudiante = null;
             this.displayConfirmDialog = false; // Cerrar el diálogo de confirmación
-            console.log("Estudiante eliminado:", response.data);
+            //console.log("Estudiante eliminado:", response.data);
           })
           .catch((error) => {
             console.error(error);
@@ -267,8 +267,8 @@ export default {
           // Agregar el nuevo estudiante a la lista actual de estudiantes
           this.estudiantes.push(response.data);
           this.displayDialogNew = false; // Cerrar el diálogo
-          console.log("Nuevo estudiante enviado:");
-          console.table(response.data);
+          //console.log("Nuevo estudiante enviado:");
+          //console.table(response.data);
         })
         .catch((error) => {
           console.error(error);
@@ -306,7 +306,7 @@ export default {
             this.editData.estudiante_dni = null;
             this.editData.estudiante_nombre = "";
             this.displayEditDialog = false; // Cerrar el diálogo de edición
-            console.log("Estudiante actualizado:", response.data);
+            //console.log("Estudiante actualizado:", response.data);
           })
           .catch((error) => {
             console.error(error);
