@@ -79,7 +79,7 @@ export default {
             {
               label: "Asistencia",
               icon: "pi pi-fw pi-check-square",
-              to: "/",
+              to: "/CmpAsistencia",
             },
             {
               label: "Participacion",
